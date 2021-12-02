@@ -7,10 +7,14 @@ let products = []
 
 form.addEventListener('submit', (e) => {
     let product = {
-        name: productName,
-        amount: amount,
-        price: price
+        name: productName.value,
+        amount: amount.value,
+        price: price.value
     }
     products.push(product)
 })
 
+// console.log(products)
+
+function writeProducts() {
+}
