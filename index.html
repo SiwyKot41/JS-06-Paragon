@@ -6,47 +6,57 @@
   <link rel="stylesheet" href="css/main.css" type="text/css"/>
 </head>
 <body>
-  <h1>Dodaj</h1>
-  <form id ="add-product" action="">
-    Nazwa: <input id="product-name" type="text" required/>
-    <br><br/>
-    Ilość: <input id="amount" type="text" required/>
-    <br><br/>
-    Cena: <input id="price" type="text" required/>
-    <br><br/>
-    <button type="submit">Dodaj produkt</button>
-  </form>
-  <br><br/>
+  <div id="main_container">
+    <div type="form">
+      <h1>Dodaj</h1>
+      <form id ="add-product" action="">
+        Nazwa: <input id="product-name" type="text" required/>
+        <br><br/>
+        Ilość: <input id="amount" type="text" required/>
+        <br><br/>
+        Cena: <input id="price" type="text" required/>
+        <br><br/>
+        <button type="submit">Dodaj produkt</button>
+      </form>
+    </div>
+    <pre></pre>
 
-  <h1>Edytuj</h1>
-  <form id="edit-product" action="">
-    Id: <input id="product-id-edit" type="text" required/>
-    <br><br/>
-    Nazwa: <input id="product-name-edit" type="text"/>
-    <br><br/>
-    Ilość: <input id="amount-edit" type="text"/>
-    <br><br/>
-    Cena: <input id="price-edit" type="text"/>
-    <br><br/>
-    <button type="submit">Edytuj produkt</button>
-  </form>
-  <br><br/>
+    <div type="form">
+      <h1>Edytuj</h1>
+      <form id="edit-product" action="">
+        Id: <input id="product-id-edit" type="text" required/>
+        <br><br/>
+        Nazwa: <input id="product-name-edit" type="text"/>
+        <br><br/>
+        Ilość: <input id="amount-edit" type="text"/>
+        <br><br/>
+        Cena: <input id="price-edit" type="text"/>
+        <br><br/>
+        <button type="submit">Edytuj produkt</button>
+      </form>
+    </div>
 
-  <h1>Usuń</h1>
-  <form id="remove-product" action="">
-    Id: <input id="product-id-remove" type="text" required/>
-    <br><br/>
-    <button type="submit">Usuń produkt</button>
-  </form>
+    <div type="form">
+      <h1>Usuń</h1>
+      <form id="remove-product" action="">
+        Id: <input id="product-id-remove" type="text" required/>
+        <br><br/>
+        <button type="submit">Usuń produkt</button>
+      </form>
+    </div>
 
-  <h1>Zamień</h1>
-  <form id="swap-product" action="">
-    Id produktu: <input id="product-id-swap" type="text" required/>
-    <br><br/>
-    Id drugiego produktu: <input id="product2-id-swap" type="text" required/>
-    <br><br/>
-    <button type="submit">Zamień miejscami</button>
-  </form>
+    <div type="form">
+      <h1>Zamień</h1>
+      <form id="swap-product" action="">
+        Id produktu: <input id="product-id-swap" type="text" required/>
+        <br><br/>
+        Id drugiego produktu: <input id="product2-id-swap" type="text" required/>
+        <br><br/>
+        <button type="submit">Zamień miejscami</button>
+      </form>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
