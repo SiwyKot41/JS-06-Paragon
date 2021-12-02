@@ -1,6 +1,7 @@
 const formAdd = document.getElementById('add-product')
 const formEdit = document.getElementById('edit-product')
 const formRemove = document.getElementById('remove-product')
+const formSwap = document.getElementById('swap-product')
 
 let products = []
 
@@ -48,3 +49,15 @@ formRemove.addEventListener('submit', (e) => {
     products.splice(id.value - 1, 1)
     console.log(products)
 })
+
+formSwap.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const id = document.getElementById('product-id-swap')
+    const id2 = document.getElementById('product2-id-swap')
+    if ((id.value == 0 || id.value > products.length) || (id2.value == 0 || id2.value > products.length)) return;
+    let tmp = products[id.value - 1]
+    products[id.value - 1] = products[id2.value - 1]
+    products[id2.value - 1] = tmp
+    console.log(products)
+})
+
