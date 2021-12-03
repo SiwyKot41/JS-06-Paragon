@@ -1,62 +1,85 @@
 <!DOCTYPE html>
 <html class="no-js" lang="pl">
+
 <head>
   <meta charset="utf-8">
   <title>Paragon</title>
   <link rel="stylesheet" href="css/main.css" type="text/css"/>
 </head>
+
 <body>
-  <div id="main_container">
-    <div type="form">
-      <h1>Dodaj</h1>
+  <div id="container">
+    <div id="title">ŁADNY TYTUŁ</div>
+
+    <div class="action" type="form">
+      <p class="action-name">Dodaj</p>
       <form id ="add-product" action="">
-        Nazwa: <input id="product-name" type="text" required/>
-        <br><br/>
-        Ilość: <input id="amount" type="text" required/>
-        <br><br/>
-        Cena: <input id="price" type="text" required/>
-        <br><br/>
+        <div class="item-name">Nazwa:</div> <input id="product-name" type="text" required/>
+        <div style="clear:both;"></div>
+        <div class="item-name">Ilość:</div> <input id="amount" type="text" required/>
+        <div style="clear:both;"></div>
+        <div class="item-name">Cena:</div> <input id="price" type="text" required/>
+        <div style="clear:both;"></div>
         <button type="submit">Dodaj produkt</button>
       </form>
     </div>
-    <pre></pre>
 
-    <div type="form">
-      <h1>Edytuj</h1>
+    <div class="action" type="form">
+      <p class="action-name">Edytuj</p>
       <form id="edit-product" action="">
-        Id: <input id="product-id-edit" type="text" required/>
-        <br><br/>
-        Nazwa: <input id="product-name-edit" type="text"/>
-        <br><br/>
-        Ilość: <input id="amount-edit" type="text"/>
-        <br><br/>
-        Cena: <input id="price-edit" type="text"/>
-        <br><br/>
+        <div class="item-name">Id:</div> <input id="product-id-edit" type="text" required/>
+        <div style="clear:both;"></div>
+        <div class="item-name">Nazwa:</div><input id="product-name-edit" type="text"/>
+        <div style="clear:both;"></div>
+        <div class="item-name">Ilość:</div> <input id="amount-edit" type="text"/>
+        <div style="clear:both;"></div>
+        <div class="item-name">Cena:</div> <input id="price-edit" type="text"/>
+        <div style="clear:both;"></div>
         <button type="submit">Edytuj produkt</button>
       </form>
     </div>
 
-    <div type="form">
-      <h1>Usuń</h1>
+    <div class="action" type="form">
+      <p class="action-name">Usuń</p>
       <form id="remove-product" action="">
-        Id: <input id="product-id-remove" type="text" required/>
-        <br><br/>
+        <div class="item-name">Id:</div><input id="product-id-remove" type="text" required/>
+        <div style="clear:both;"></div>
         <button type="submit">Usuń produkt</button>
       </form>
     </div>
 
-    <div type="form">
-      <h1>Zamień</h1>
+    <div class="action" type="form">
+      <p class="action-name">Zamień</p>
       <form id="swap-product" action="">
-        Id produktu: <input id="product-id-swap" type="text" required/>
-        <br><br/>
-        Id drugiego produktu: <input id="product2-id-swap" type="text" required/>
-        <br><br/>
+        <div class="item-name">Id1:</div> <input id="product-id-swap" type="text" required/>
+        <div style="clear:both;"></div>
+        <div class="item-name">Id2:</div> <input id="product2-id-swap" type="text" required/>
+        <div style="clear:both;"></div>
         <button type="submit">Zamień miejscami</button>
       </form>
     </div>
+
+    <div style="clear:both;"></div>
+
+    <div id='receipt'>
+      <table id="table-headers">
+        <tr>
+          <td class="td-id">ID</td>
+          <td class="td-name">NAZWA</td>
+          <td class="td-amount">ILOŚĆ</td>
+          <td class="td-price">CENA</td>
+        </tr>
+      </table>
+      <table id="tab">
+
+      </table>
+
+
+    </div>
+
+
   </div>
 
-  <script src="js/main.js"></script>
+  <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

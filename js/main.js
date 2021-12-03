@@ -5,6 +5,61 @@ const formSwap = document.getElementById('swap-product')
 
 let products = []
 
+function reload() {
+
+    var tab = document.getElementById("tab");
+    while(tab.lastElementChild) {
+        tab.removeChild(tab.lastElementChild);
+    }
+
+    let id=1;
+    let summaryPrice = 0;
+    products.forEach(element => {
+        var row = document.createElement("tr");
+        row.className = 'data-row';
+        var data = document.createElement("td");
+
+        var idCell = row.insertCell(0);
+        idCell.className = 'td-id'
+        var nameCell = row.insertCell(1);
+        nameCell.className = 'td-name';
+        var amountCell = row.insertCell(2);
+        amountCell.className = 'td-amount';
+        var priceCell = row.insertCell(3);
+        priceCell.className = 'td-price'
+
+        idCell.innerHTML = id;
+        nameCell.innerHTML = element.name;
+        amountCell.innerHTML = element.amount;
+        priceCell.innerHTML = element.price;
+
+        summaryPrice += parseFloat(element.summaryPrice) + summaryPrice;
+        summaryPrice.toFixed(2);
+
+        tab.appendChild(row);
+        id++;
+    });
+
+    var row = document.createElement("tr");
+    row.id = 'summary-row'
+    var data = document.createElement("td");
+
+    var emptyCell = row.insertCell(0);
+    emptyCell.className = 'td-id'
+    var emptyCell = row.insertCell(1);
+    emptyCell.className = 'td-name'
+    var summaryCell = row.insertCell(2);
+    summaryCell.className = 'td-amount'
+    var summaryPriceCell = row.insertCell(3);
+    emptyCell.className = 'td-price'
+    summaryCell.appendChild(document.createTextNode("RAZEM"));
+    summaryPrice.toFixed(2);
+    summaryPriceCell.appendChild(document.createTextNode(summaryPrice));
+    tab.appendChild(row);
+}
+
+
+
 formAdd.addEventListener('submit', (e) => {
     e.preventDefault()
     const productName = document.getElementById('product-name');
@@ -18,6 +73,7 @@ formAdd.addEventListener('submit', (e) => {
         summaryPrice: (price.value * amount.value).toFixed(2)
     }
     products.push(product)
+    reload();
     console.log(products)
 })
 
@@ -39,6 +95,7 @@ formEdit.addEventListener('submit', (e) => {
         price: price.value,
         summaryPrice: (price.value * amount.value).toFixed(2)
     }
+     reload();
     console.log(products)
 })
 
@@ -48,6 +105,7 @@ formRemove.addEventListener('submit', (e) => {
     if (id.value == 0 || id.value > products.length) return;
     products.splice(id.value - 1, 1)
     console.log(products)
+     reload();
 })
 
 formSwap.addEventListener('submit', (e) => {
@@ -58,6 +116,7 @@ formSwap.addEventListener('submit', (e) => {
     let tmp = products[id.value - 1]
     products[id.value - 1] = products[id2.value - 1]
     products[id2.value - 1] = tmp
+     reload();
     console.log(products)
 })
 
