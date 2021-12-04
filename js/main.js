@@ -8,11 +8,11 @@ let products = []
 function reload() {
 
     var tab = document.getElementById("tab");
-    while(tab.lastElementChild) {
+    while (tab.lastElementChild) {
         tab.removeChild(tab.lastElementChild);
     }
 
-    let id=1;
+    let id = 1;
     let summaryPrice = 0;
     products.forEach(element => {
         var row = document.createElement("tr");
@@ -33,9 +33,7 @@ function reload() {
         amountCell.innerHTML = element.amount;
         priceCell.innerHTML = element.price;
 
-        summaryPrice += parseFloat(element.summaryPrice) + summaryPrice;
-        summaryPrice.toFixed(2);
-
+        summaryPrice += parseFloat(element.summaryPrice)
         tab.appendChild(row);
         id++;
     });
@@ -52,12 +50,16 @@ function reload() {
     summaryCell.className = 'td-amount'
     var summaryPriceCell = row.insertCell(3);
     emptyCell.className = 'td-price'
+
+    // console.log("przed sparsowaniem " + summaryPrice)
+    // parseFloat(summaryPrice)
+    // console.log("po sparsowaniu i przed zaokrągleniem " + summaryPrice)
+    // summaryPrice.toFixed(2);
+    // console.log("po zaokrągleniu " + summaryPrice)
     summaryCell.appendChild(document.createTextNode("RAZEM"));
-    summaryPrice.toFixed(2);
-    summaryPriceCell.appendChild(document.createTextNode(summaryPrice));
+    summaryPriceCell.appendChild(document.createTextNode(summaryPrice.toFixed(2)));
     tab.appendChild(row);
 }
-
 
 
 formAdd.addEventListener('submit', (e) => {
@@ -74,7 +76,7 @@ formAdd.addEventListener('submit', (e) => {
     }
     products.push(product)
     reload();
-    console.log(products)
+    // console.log(products)
 })
 
 formEdit.addEventListener('submit', (e) => {
@@ -96,7 +98,7 @@ formEdit.addEventListener('submit', (e) => {
         summaryPrice: (price.value * amount.value).toFixed(2)
     }
      reload();
-    console.log(products)
+    // console.log(products)
 })
 
 formRemove.addEventListener('submit', (e) => {
@@ -104,7 +106,7 @@ formRemove.addEventListener('submit', (e) => {
     const id = document.getElementById('product-id-remove')
     if (id.value == 0 || id.value > products.length) return;
     products.splice(id.value - 1, 1)
-    console.log(products)
+    // console.log(products)
      reload();
 })
 
@@ -117,6 +119,6 @@ formSwap.addEventListener('submit', (e) => {
     products[id.value - 1] = products[id2.value - 1]
     products[id2.value - 1] = tmp
      reload();
-    console.log(products)
+    // console.log(products)
 })
 
