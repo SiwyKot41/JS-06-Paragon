@@ -105,7 +105,6 @@ formEdit.addEventListener('submit', (e) => {
         price: price.value,
         summaryPrice: (price.value * amount.value).toFixed(2)
     }
-    localStorage.removeItem(id.value - 1)
     localStorage.setItem(id.value - 1, JSON.stringify(products[id.value - 1]))
      reload();
     // console.log(products)
@@ -116,7 +115,11 @@ formRemove.addEventListener('submit', (e) => {
     const id = document.getElementById('product-id-remove')
     if (id.value == 0 || id.value > products.length || isNaN(id.value)) return;
     products.splice(id.value - 1, 1)
-    localStorage.removeItem(id.value - 1)
+
+    localStorage.clear()
+    products.forEach((product, idx) => {
+        localStorage.setItem(idx, JSON.stringify(products[idx]))
+    })
     // console.log(products)
      reload();
 })
