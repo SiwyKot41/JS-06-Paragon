@@ -10,6 +10,7 @@ Object.keys(localStorage).forEach((key) => {
 
 if (products.length !== 0) reload()
 
+// localStorage.clear()
 function reload() {
     var tab = document.getElementById("tab");
     while (tab.lastElementChild) {
@@ -35,7 +36,7 @@ function reload() {
         idCell.innerHTML = id;
         nameCell.innerHTML = element.name;
         amountCell.innerHTML = element.amount;
-        priceCell.innerHTML = element.price;
+        priceCell.innerHTML = element.price + " zł";
 
         summaryPrice += parseFloat(element.summaryPrice)
         tab.appendChild(row);
@@ -76,7 +77,7 @@ formAdd.addEventListener('submit', (e) => {
     let product = {
         name: productName.value,
         amount: amount.value,
-        price: price.value,
+        price: parseFloat(price.value).toFixed(2),
         summaryPrice: (price.value * amount.value).toFixed(2)
     }
 
@@ -102,7 +103,7 @@ formEdit.addEventListener('submit', (e) => {
     products[id.value - 1] = {
         name: productName.value,
         amount: amount.value,
-        price: price.value,
+        price: parseFloat(price.value).toFixed(2),
         summaryPrice: (price.value * amount.value).toFixed(2)
     }
     localStorage.setItem(id.value - 1, JSON.stringify(products[id.value - 1]))
